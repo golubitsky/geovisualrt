@@ -1,0 +1,11 @@
+#landsat-display * {
+  display: block;
+}
+
+#landsat-location {
+  color: #ff3399
+}
+
+#landsat-caption {
+  color: #ff3399
+}
