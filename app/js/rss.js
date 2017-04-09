@@ -26,7 +26,7 @@ function displayOneImage(entries, map){
   // caption the image
   var latitude = entry["latitude"];
   var longitude = entry["longitude"];
-  var locationText = `Location: ${latitude}, ${longitude}`;
+  var locationText = `Latitude/Longitude: ${latitude}, ${longitude}`;
   var locationSpan = $('<span />')
     .attr('id','landsat-location')
     .html(locationText);

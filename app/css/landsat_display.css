@@ -1,5 +1,4 @@
 #landsat-display {
-  color: #ff3399;
   font-size: 30px;
   width: 700px;
   height: 615px;
@@ -9,9 +8,7 @@
 }
 
 #landsat-location {
-  color: #ff3399
 }
 
 #landsat-caption {
-  color: #ff3399
 }

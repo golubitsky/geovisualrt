@@ -42,13 +42,16 @@
           target: 'map',
           layers: [raster],//, vector],
           view: new ol.View({
-            center: ol.proj.fromLonLat([-123, 37.1]),
-            zoom: 5
+            center: ol.proj.fromLonLat([0,0]),
+            zoom: 1
           })
         });
 
         commenceOperationLandsat(map);
       });
     </script>
+    <div>
+      Read about the Landsat program <a href="https://en.wikipedia.org/wiki/Landsat_program" target="_blank">here>.
+    </div>
   </body>
 </html>
