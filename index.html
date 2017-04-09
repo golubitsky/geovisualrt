@@ -9,15 +9,14 @@
       }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="app/js/rss.js"></script>
     <link rel="stylesheet" type="text/css" href="app/css/main.css">
     <link rel="stylesheet" type="text/css" href="app/css/landsat_display.css">
     <script src="https://openlayers.org/en/v4.0.1/build/ol.js" type="text/javascript"></script>
-    <script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-      crossorigin="anonymous"></script>
-    <script src="app/js/rss.js"></script>
     <script src="app/js/map.js"></script>
     <title>ol example</title>
   </head>
@@ -26,6 +25,7 @@
     </div>
     <div id="map" class="map"></div>
     <script type="text/javascript">
+      $.support.cors = true;
       $(function(){
         var raster = new ol.layer.Tile({
           source: new ol.source.OSM()
@@ -45,7 +45,6 @@
             zoom: 5
           })
         });
-          console.log(map)
 
         commenceOperationLandsat(map);
       });

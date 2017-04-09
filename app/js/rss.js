@@ -1,8 +1,10 @@
-var feed;
-
-function readRSSFeed(){
-  var url = 'https://landsat.usgs.gov/landsat/rss/Landsat_L1T.rss'
-  return feednami.load(url)
+function getImages(callback){
+  var url = 'https://cryptic-hamlet-99699.herokuapp.com/api/landsat'
+  $.ajax({
+    dataType: "json",
+    url: url,
+    success: callback
+  });
 }
 
 var imageCounter = 0;
@@ -16,14 +18,14 @@ function displayOneImage(entries, map){
   var entry = entries[imageCounter];
 
   // show the image
-  var url = entry["guid"];
+  var url = entry["imageLink"];
   var landsatImage = createImage(url)
   $content.html('')
   $content.append(landsatImage);
 
   // caption the image
-  var latitude = parseFloat(entry["geo:lat"]["#"]);
-  var longitude = parseFloat(entry["geo:long"]["#"]);
+  var latitude = entry["latitude"];
+  var longitude = entry["longitude"];
   var locationText = `Location: ${latitude}, ${longitude}`;
   var locationSpan = $('<span />')
     .attr('id','landsat-location')
@@ -56,8 +58,7 @@ function createImage(sourceUrl){
 }
 
 function commenceOperationLandsat(map){
-  readRSSFeed()
-    .then(feed => {
-      commenceLoopImages(feed.entries, map)
-    });
+  getImages((response) => {
+    commenceLoopImages(response, map)
+  });
 }
