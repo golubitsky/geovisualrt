@@ -1,2 +1,2 @@
 # geovisualrt
-Visualization of realtime geo-data
+Visualization of landsat rss feed
